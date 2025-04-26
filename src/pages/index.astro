@@ -1,16 +1,201 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="LeadPulse AI | Smart Lead Incubation for Real Estate Agents">
+	<main class="min-h-screen flex flex-col">
+		<!-- Future header space -->
+		<div class="h-16 md:h-20"></div>
+		
+		<!-- Hero Section -->
+		<section class="flex-grow flex items-center justify-center py-12 px-4 mt-6 md:mt-10">
+			<div class="relative max-w-4xl mx-auto">
+				<!-- Pulsating background effects -->
+				<div class="absolute inset-0 -z-10 opacity-50">
+					<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-primary-600/20 animate-pulse"></div>
+					<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-secondary-600/10 animate-pulse" style="animation-delay: 0.5s"></div>
+					<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full bg-primary-600/5 animate-pulse" style="animation-delay: 1s"></div>
+				</div>
+				
+				<!-- Behind box glow effect -->
+				<div class="absolute -inset-4 -z-5 bg-gradient-to-b from-blue-500/30 to-purple-500/30 rounded-3xl blur-3xl animate-glow-pulse"></div>
+				
+				<!-- Content Card -->
+				<div class="bg-gray-900/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800 shadow-2xl relative animate-slide-down">
+					<div class="p-8 md:p-12">
+						<!-- Header content -->
+						<div class="text-center mb-10">
+							<h1 class="text-4xl md:text-5xl font-bold mb-6">
+								<span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 animate-slow-shimmer inline-block">LeadPulse AI</span>
+							</h1>
+							<p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
+								Intelligent Lead Incubation for Real Estate Agents
+							</p>
+							<p class="text-gray-400 max-w-xl mx-auto">
+								Automate your follow-ups with AI that nurtures relationships without the fluff. Your leads stay warm, your time stays yours.
+							</p>
+						</div>
+						
+						<!-- Signup form -->
+						<div class="max-w-md mx-auto">
+							<form id="waitlist-form" class="space-y-4">
+								<div>
+									<label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email address</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										required
+										class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+										placeholder="youremail@example.com"
+									/>
+								</div>
+								
+								<div>
+									<label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your name</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										required
+										class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+										placeholder="Jane Smith"
+									/>
+								</div>
+								
+								<div>
+									<button
+										type="submit"
+										id="submit-btn"
+										class="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-medium hover:from-blue-500 hover:to-purple-500 transition-all duration-300"
+									>
+										Join Waitlist
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Features Section -->
+		<section class="py-20 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl md:text-4xl font-bold mb-6">
+						How <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">LeadPulse AI</span> Works
+					</h2>
+					<p class="text-xl text-gray-300 max-w-2xl mx-auto">
+						Our AI carefully nurtures your leads with personalized, meaningful communication—not generic fluff.
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8" id="features-container">
+					<div class="bg-gray-900/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-blue-500/10 hover:border-blue-500/30 opacity-0" data-feature="1">
+						<div class="relative flex justify-center mb-6">
+							<div class="absolute inset-0 bg-blue-500/10 rounded-full blur-sm w-14 h-14 mx-auto"></div>
+							<div class="h-12 w-12 rounded-full flex items-center justify-center animate-soft-bounce relative z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+								</svg>
+							</div>
+						</div>
+						<h3 class="text-xl font-semibold mb-3 text-center">Import Your Contacts</h3>
+						<p class="text-gray-400 text-center">
+							Easily import your contacts from any CRM or spreadsheet. No complex setup required.
+						</p>
+					</div>
+
+					<div class="bg-gray-900/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-purple-500/10 hover:border-purple-500/30 opacity-0" data-feature="2">
+						<div class="relative flex justify-center mb-6">
+							<div class="absolute inset-0 bg-purple-500/10 rounded-full blur-sm w-14 h-14 mx-auto"></div>
+							<div class="h-12 w-12 rounded-full flex items-center justify-center animate-soft-bounce relative z-10" style="animation-delay: 0.5s">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+								</svg>
+							</div>
+						</div>
+						<h3 class="text-xl font-semibold mb-3 text-center">AI-Driven Communication</h3>
+						<p class="text-gray-400 text-center">
+							Our AI analyzes your contact history and creates personalized follow-ups that get responses.
+						</p>
+					</div>
+
+					<div class="bg-gray-900/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-blue-500/10 hover:border-blue-500/30 opacity-0" data-feature="3">
+						<div class="relative flex justify-center mb-6">
+							<div class="absolute inset-0 bg-blue-500/10 rounded-full blur-sm w-14 h-14 mx-auto"></div>
+							<div class="h-12 w-12 rounded-full flex items-center justify-center animate-soft-bounce relative z-10" style="animation-delay: 1s">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+								</svg>
+								<div class="absolute top-0 right-0 h-3 w-3 bg-blue-400 rounded-full animate-pulse"></div>
+							</div>
+						</div>
+						<h3 class="text-xl font-semibold mb-3 text-center">Actionable Insights</h3>
+						<p class="text-gray-400 text-center">
+							Get real-time data on which leads are engaging and ready for your personal touch.  All replies go back to you or your CRM.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Footer -->
+		<footer class="py-6 text-center text-gray-400 text-sm">
+			&copy; {new Date().getFullYear()} LeadPulse AI. All rights reserved.
+		</footer>
+	</main>
+</Layout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Form submission handler
+		const form = document.getElementById('waitlist-form');
+		
+		form?.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const submitBtn = document.getElementById('submit-btn');
+			const email = (document.getElementById('email') as HTMLInputElement).value;
+			
+			if (submitBtn) {
+				submitBtn.textContent = 'Joining...';
+				submitBtn.setAttribute('disabled', 'true');
+			}
+			
+			// This would normally send data to your backend
+			// For now, we'll just simulate a successful submission
+			setTimeout(() => {
+				if (form) form.innerHTML = `
+					<div class="text-center py-8">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+						<h3 class="text-2xl font-bold mb-2">Thank You!</h3>
+						<p class="text-gray-300 mb-6">We've added <span class="text-blue-400">${email}</span> to our waitlist.</p>
+						<p class="text-gray-400">We'll let you know as soon as LeadPulse AI is ready for you.</p>
+					</div>
+				`;
+			}, 1500);
+		});
+		
+		// Feature animations on scroll
+		const animateFeatures = () => {
+			const features = document.querySelectorAll('[data-feature]');
+			
+			features.forEach((feature, index) => {
+				const rect = feature.getBoundingClientRect();
+				if (rect.top < window.innerHeight * 0.8) {
+					setTimeout(() => {
+						feature.classList.add('animate-feature-fade-in');
+					}, index * 200); // Stagger the animations
+				}
+			});
+		};
+		
+		// Run once on load and on scroll
+		animateFeatures();
+		window.addEventListener('scroll', animateFeatures);
+	});
+</script>
+
