@@ -157,15 +157,33 @@ import Layout from '../layouts/Layout.astro';
 			e.preventDefault();
 			const submitBtn = document.getElementById('submit-btn');
 			const email = (document.getElementById('email') as HTMLInputElement).value;
+			const name = (document.getElementById('name') as HTMLInputElement).value;
 			
 			if (submitBtn) {
 				submitBtn.textContent = 'Joining...';
 				submitBtn.setAttribute('disabled', 'true');
 			}
 			
-			// This would normally send data to your backend
-			// For now, we'll just simulate a successful submission
-			setTimeout(() => {
+			// Send data to webhook
+			fetch('https://hook.us1.make.com/0lj0qxstc3gqf21y6nzq98vp4hw49ad5', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					email,
+					name,
+					source: 'website-waitlist'
+				})
+			})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then(data => {
+				// Show success message
 				if (form) form.innerHTML = `
 					<div class="text-center py-8">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -176,7 +194,29 @@ import Layout from '../layouts/Layout.astro';
 						<p class="text-gray-400">We'll let you know as soon as LeadPulse AI is ready for you.</p>
 					</div>
 				`;
-			}, 1500);
+			})
+			.catch(error => {
+				console.error('Error submitting form:', error);
+				
+				// Re-enable the button
+				if (submitBtn) {
+					submitBtn.textContent = 'Join Waitlist';
+					submitBtn.removeAttribute('disabled');
+				}
+				
+				// Show error message
+				const errorDiv = document.createElement('div');
+				errorDiv.className = 'mt-4 p-3 bg-red-900/50 border border-red-700 rounded-lg text-red-200 text-sm';
+				errorDiv.textContent = 'Sorry, there was an error submitting your request. Please try again.';
+				
+				// Add error message after the submit button
+				submitBtn?.parentNode?.appendChild(errorDiv);
+				
+				// Remove error message after 5 seconds
+				setTimeout(() => {
+					errorDiv.remove();
+				}, 5000);
+			});
 		});
 		
 		// Feature animations on scroll
